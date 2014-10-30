@@ -44,7 +44,7 @@ define :iib_install_runtime  do
     user "root"
     returns [0,1,127]
     cwd "#{unpack_dir}"
-    command "#{unpack_dir}/setuplinuxx64 -i silent -DLICENSE_ACCEPTED=TRUE -DUSER_INSTALL_DIR=/opt/ibm/mqsi/9.0"
+    command "#{unpack_dir}/setuplinuxx64 -i silent -DLICENSE_ACCEPTED=TRUE -DUSER_INSTALL_DIR=/opt/ibm/mqsi/9.0.0.2"
   end
   #
   # Set up the runtime user to have the correct permissions and environment
@@ -58,7 +58,7 @@ define :iib_install_runtime  do
   execute "Update users profile to include curent IIB environment (mqsiprofile)" do
     user "root"
     returns [0]
-    command "sed -i '$a source /opt/ibm/mqsi/9.0/bin/mqsiprofile' #{home}/.bash_profile"
+    command "sed -i '$a source /opt/ibm/mqsi/9.0.0.2/bin/mqsiprofile' #{home}/.bash_profile"
   end
 
   execute "Remove existing IIB environment from users .bashrc (mqsiprofile)" do
@@ -70,6 +70,6 @@ define :iib_install_runtime  do
   execute "Update users .bashrc to include curent IIB environment (mqsiprofile)" do
     user "root"
     returns [0]
-    command "sed -i '$a source /opt/ibm/mqsi/9.0/bin/mqsiprofile' #{home}/.bashrc"
+    command "sed -i '$a source /opt/ibm/mqsi/9.0.0.2/bin/mqsiprofile' #{home}/.bashrc"
 end
 end
