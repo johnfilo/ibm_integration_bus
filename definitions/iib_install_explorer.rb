@@ -25,7 +25,7 @@ define :iib_install_explorer do
   #
   iib_install_32bit_libs;
   
-	log "IBM Integration Explorer install log can be found in the /opt/ibm/mqsi/9.0.0.0 directory" do 
+	log "IBM Integration Explorer install log can be found in the /opt/ibm/mqsi/9.0.0.2 directory" do 
 		level :info
 	end
 	
